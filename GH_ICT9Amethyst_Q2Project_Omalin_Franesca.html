@@ -1,0 +1,294 @@
+<html>
+<head>
+    <title>Silantro - Menu</title>
+	<style> 
+		table, th, td {background-color: #D5D6C6; border: 2px dotted; padding: 10px; #556B2F; text-align: center; font-family: Trebuchet MS; font-size: large;  color:#556B2F; text-shadow: 3px 1px #adc56c; letter-spacing: 2px;}
+		img{width:200px; height:250px; border-radius: 10%;}
+		h1, h2{font-family: Trebuchet MS; text-align: center; color:#556B2F;}  
+		label{font-family: Trebuchet MS; text-align: center; color:#556B2F;}  
+	    input:link {color: #556B2F; background-color: transparent; text-decoration: none; }
+		input:visited {color: #556B2F; background-color: transparent; text-decoration: none;}
+		input:hover {color: #556B2F; background-color: #BDBC70; text-decoration: none;}
+		input:active {color: #556B2F; background-color: transparent; text-decoration: none;}
+		hr{width:100%;}
+		.banner{width:100%;}
+
+		* {box-sizing: border-box;}
+
+		.zoom {
+		  width:200px; height:250px; border-radius: 10%; 
+		  transition: transform .2s;
+		  margin: 0 auto;
+		}
+
+		.zoom:hover {
+		  -ms-transform: scale(1.5); /* IE 9 */
+		  -webkit-transform: scale(1.5); /* Safari 3-8 */
+		  transform: scale(1.5); 
+		}
+
+				/* Button used to open the contact form - fixed at the bottom of the page */
+		.open-button {
+		  background-color: #555;
+		  color: white;
+		  padding: 16px 20px;
+		  border: none;
+		  cursor: pointer;
+		  opacity: 0.8;
+		  position: fixed;
+		  bottom: 23px;
+		  right: 28px;
+		  width: 280px;
+		}
+
+		/* The popup form - hidden by default */
+		.form-popup {
+		  display: none;
+		  position: fixed;
+		  bottom: 0;
+		  right: 0px;
+		  border: 3px solid #f1f1f1;
+		  z-index: 9;
+		}
+
+		/* Add styles to the form container */
+		.form-container {
+		  max-width: 925px;
+		  padding: 10px;
+		  background-color: #D5D6C6;
+		  border: 2px dotted;
+		}
+
+		/* Full-width input fields */
+		.form-container input[type=text], .form-container input[type=password] {
+		  width: 100%;
+		  padding: 15px;
+		  margin: 5px 0 22px 0;
+		  border: none;
+		  background: #f1f1f1;
+		}
+
+		/* When the inputs get focus, do something */
+		.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+		  background-color: #ddd;
+		  outline: none;
+		}
+
+		/* Set a style for the submit/login button */
+		.form-container .btn {
+		  background-color: #04AA6D;
+		  color: white;
+		  padding: 16px 20px;
+		  border: none;
+		  cursor: pointer;
+		  width: 45%;
+		  /* margin-bottom:10px;*/
+		  opacity: 0.8;
+		  text-align: center;
+		}
+
+		/* Add a red background color to the cancel button */
+		.form-container .cancel {
+		  background-color: red;
+		}
+
+		/* Add some hover effects to buttons */
+		.form-container .btn:hover, .open-button:hover {
+		  opacity: 1;
+		}
+
+		/* Popup container - can be anything you want */
+		.popup {
+		  position: relative;
+		  display: inline-block;
+		  cursor: pointer;
+		  -webkit-user-select: none;
+		  -moz-user-select: none;
+		  -ms-user-select: none;
+		  user-select: none;
+		}
+
+		/* The actual popup */
+		.popup .popuptext {
+		  visibility: hidden;
+		  width: 160px;
+		  background-color: #04aa6dad;
+		  color: #fff;
+		  text-align: center;
+		  border-radius: 6px;
+		  padding: 8px 0;
+		  position: absolute;
+		  z-index: 1;
+		  bottom: 125%;
+		  left: 50%;
+		  margin-left: -80px;
+		  font-family: Trebuchet MS;
+		}
+
+		/* Popup arrow */
+		.popup .popuptext::after {
+		  content: "";
+		  position: absolute;
+		  top: 100%;
+		  left: 50%;
+		  margin-left: -5px;
+		  border-width: 5px;
+		  border-style: solid;
+		  border-color: #555 transparent transparent transparent;
+		}
+
+		/* Toggle this class - hide and show the popup */
+		.popup .show {
+		  visibility: visible;
+		  -webkit-animation: fadeIn 1s;
+		  animation: fadeIn 1s;
+		}
+		.popup .hide {
+		  visibility: none;
+		  -webkit-animation: fadeOut 3s;
+		  animation: fadeOut 3s;
+		}
+
+		/* Add animation (fade in the popup) */
+		@-webkit-keyframes fadeIn {
+		  from {opacity: 0;} 
+		  to {opacity: 1;}
+		}
+
+		@keyframes fadeIn {
+		  from {opacity: 0;}
+		  to {opacity:1 ;}
+		}
+
+		@-webkit-keyframes fadeOut {
+		  from {opacity: 1;} 
+		  to {opacity: 0;}
+		}
+
+		@keyframes fadeOut {
+		  from {opacity: 1;}
+		  to {opacity: 0;}
+		}
+
+	</style>
+</head>
+<body bgcolor="#D3C096">
+
+		<table align="center">
+			
+			<td colspan='4'><a href='https://www.facebook.com/silantrofilipinomexicancantina/' target='blank'><img class='banner' src='https://scontent.fmnl8-2.fna.fbcdn.net/v/t1.18169-9/15036727_803912086378511_7499957697681679983_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=e3f864&_nc_ohc=Vjhdfop0LmAAX-IfyId&_nc_ht=scontent.fmnl8-2.fna&oh=00_AfCJTwj0PY4D8alJmMNn7Sxyi5uT6BRsRBnwy1EMN_cRRA&oe=63AEC4EB'></img></a></td>
+			<tr>
+				<td><img class='zoom' src='https://shootfirsteatlater185426235.files.wordpress.com/2021/03/614ba-silantro-beef-nachos-p180-001.jpg'></img></td>
+				<td><img class='zoom' src='https://www.simplyhappyfoodie.com/wp-content/uploads/2017/07/Turkey-Street-Tacos-with-Cilantro-Cream-Sauce.jpg'></img></td>
+				<td><img class='zoom' src='https://scontent.fmnl8-1.fna.fbcdn.net/v/t1.6435-9/193251364_3356440631125631_2292904655262323722_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=730e14&_nc_ohc=osKs-p_vrSIAX9SF3VW&_nc_ht=scontent.fmnl8-1.fna&oh=00_AfC5EtLHzV8vMtNDRljhsD0iABpzc_yt2Fm86ePv7JbMlw&oe=63AEB83E'></img></td>
+				<td><img class='zoom' src='https://images.slurrp.com/prod/recipe_images/cooking-classy/bbq-chicken-salad-cilantro-lime-ranch-1646981696_RVTO6KKOJ30GE4E2KKTE.webp'></img></td>
+				
+			<tr>
+				<td>Beef Nachos<br>₱180<br><input onclick="openForm()" type="submit" value="Add to Cart"></input></td>
+				<td>Tacos <br>₱210<br><input onclick="openForm()" type="submit" value="Add to Cart"></input></td>
+				<td>Papi Fritas <br>₱185<br><input onclick="openForm()" type="submit" value="Add to Cart"></input></td>
+				<td>Caesar Salad <br>₱165<br><input onclick="openForm()" type="submit" value="Add to Cart"></input></td>
+		</tr>
+
+			<tr>
+				<td><img class='zoom' src='https://scontent.fmnl8-3.fna.fbcdn.net/v/t1.6435-9/54257131_1598126876957024_7251428284972400640_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=730e14&_nc_ohc=jLX-BLPuNCQAX87Vwwk&_nc_oc=AQnfzMZA3IFaSBYuj6Xm4ZMiEVKOfdi6w2j7XHm53JayoJJe2x1XLhvD0ciF-mKqOvo&_nc_ht=scontent.fmnl8-3.fna&oh=00_AfCuh2iumkSRMfIIifLofb5IlK0kiEs21spMkIJMHW1wZg&oe=63AEBCFC'></img></td>
+				<td><img class='zoom' src='https://scontent.fmnl8-1.fna.fbcdn.net/v/t1.6435-9/78840360_2014996368603404_6026077985189134336_n.jpg?stp=dst-jpg_p960x960&_nc_cat=107&ccb=1-7&_nc_sid=36a2c1&_nc_ohc=1f1QYEVw8cIAX98alMn&_nc_ht=scontent.fmnl8-1.fna&oh=00_AfA-kOeC-ypUJbqXmCrnZA6s_MuxFBnWumNlKLeWvLAU3A&oe=63AE9D16'></img></td>
+				<td><img class='zoom' src='https://preview.redd.it/iho5hqg4k4591.jpg?auto=webp&s=e31d4af21d59a7548a81db350940f24fe881f3c9'></img></td>
+				<td><img class='zoom' src='https://i0.wp.com/charlotteshares.blog/wp-content/uploads/2020/07/img_8798.jpg?resize=720%2C960&ssl=1'></img></td>
+				
+			</tr>
+
+			<tr>
+				<td>Pancholon's Burger <br>₱190<br><input onclick="openForm()" type="submit" value="Add to Cart"></input></td>
+				<td>Grilled Porkchop <br>₱240<br><input onclick="openForm()" type="submit" value="Add to Cart"></input></a></td>
+				<td>Paella Fajita <br>₱280<br><input onclick="openForm()" type="submit" value="Add to Cart"></input></td>
+				<td>Rib Eye <br>₱685<br><input onclick="openForm()" type="submit" value="Add to Cart"></input></td>
+				
+			</tr>
+
+			<tr>
+				<td><img class='zoom' src='https://mydominicankitchen.com/wp-content/uploads/2021/03/Garlic-Cilantro-Chicken-Skewers-Smart-Little-Cookie-3-800x1177.jpg'></img></td>
+				<td><img class='zoom' src='https://i.pinimg.com/originals/07/5d/94/075d9444f54f0783d18353360a016418.jpg'></img></td>
+				<td><img class='zoom' src='https://thegirlonbloor.com/wp-content/uploads/2015/03/Pulled-Chicken-Burrito-2.jpg'></img></td>
+				<td><img class='zoom' src='https://cdn.phonebooky.com/blog/wp-content/uploads/2019/10/17105515/Screen-Shot-2019-10-17-at-10.54.39-AM.jpg'></img></td>
+				
+			</tr>
+
+			<tr>
+				<td>Chicken Skewers <br>₱240<br><input onclick="openForm()" type="submit" value="Add to Cart"></input></td>
+				<td>Pork Ribs <br>₱310<br><input onclick="openForm()" type="submit" value="Add to Cart"></input></td>
+				<td>Burrito <br>₱200<br><input onclick="openForm()" type="submit" value="Add to Cart"></input></td>
+				<td>Caliente Wings <br>₱220<br><input onclick="openForm()" type="submit" value="Add to Cart"></input></img></td>
+				
+			</tr>
+
+			<tr>
+				<td><img class='zoom' src='https://tidymom.net/blog/wp-content/uploads/2019/03/sangria-mexican-mule-pic.jpg'></img></td>
+				<td><img class='zoom' src='https://tmbidigitalassetsazure.blob.core.windows.net/toh/GoogleImagesPostCard/Mojito_EXPS_FT19_37188_F_0814_1.jpg'></img></td>
+				<td><img class='zoom' src='https://www.liquor.com/thmb/LvTpxU4_Zjn1EuELMJ6aDijvjBg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__liquor__2017__07__05150949__Frozen-Margarita-720x720-recipe-59566ae60c504508906963b1de69ad25.jpg'></img></td>
+				<td><img class='zoom' src='https://www.cookingclassy.com/wp-content/uploads/2019/04/horchata-6.jpg'></img></td>
+				
+			</tr>
+
+			<tr>
+				<td>Mexican Sangria <br>₱185<br><input onclick="openForm()" type="submit" value="Add to Cart"></input></td>
+				<td>Classic Mojito <br>₱150<br><input onclick="openForm()" type="submit" value="Add to Cart"></input></td>
+				<td>Clasic Margarita <br>₱120<br><input onclick="openForm()" type="submit" value="Add to Cart"></input></td>
+				<td>Horchata <br>₱90<br><input onclick="openForm()" type="submit" value="Add to Cart"></input></img></td>
+				
+			</tr>
+
+		</table>
+		
+		<br><br><br>
+		<div align="center">
+			<form id="myForm" class="form-container">
+				<h2>Checkout</h2>
+
+				<label for="email"><b>Email</b></label>
+				<input type="text" placeholder="username@domain.com" name="email" required>
+
+				<label for="fname"><b>Full Name</b></label>
+				<input type="text" placeholder="Enter Full Name" name="fname" required>
+
+				<label for="address"><b>Address</b></label>
+				<input type="text" placeholder="Enter Address" name="address" required>
+
+				<label for="mobilenum"><b>Mobile Number</b></label>
+				<input type="text" placeholder="xxxx-xxx-xxxx" name="mobilenum" required>
+
+				<input type="radio" id="cod" name="fav_language" value="COD">
+ 				<label for="cod">COD</label>
+ 				<input type="radio" id="online" name="fav_language" value="Online Payment">
+ 				<label for="online">Online Payment</label><br><br>
+
+				<div align="center">
+					<button type="button" class="btn" onclick="mySubmit()">Checkout</button>
+					<button type="button" class="btn cancel" onclick="topFunction()">Cancel</button>				
+				</div>			 
+		    </form>			 
+		</div>	
+	  
+		
+	</div>
+
+	<script>
+			function mySubmit() {
+			document.getElementById("myForm").style.display = "none";
+			alert("Orders have been placed successfully!");
+			location.reload();
+			document.body.scrollTop = 0;
+			document.documentElement.scrollTop = 0;
+			}
+
+			function topFunction() {
+			document.body.scrollTop = 0;
+		    document.documentElement.scrollTop = 0;
+			}
+
+			function openForm() {
+			window.scrollBy(0, 2000);
+			}
+        </script>
+</body>
+</html>
